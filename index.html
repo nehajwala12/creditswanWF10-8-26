@@ -20932,6 +20932,76 @@ table.cst tr.ad-hl td{background:rgba(233,197,131,.2)}
 @media (max-width:640px){ #rail.rail button{font-size:0;letter-spacing:0} .ck-queue .hd>.cs-faint{display:none} }
 @media (prefers-reduced-motion:reduce){.ck-pane,.ck-pbox{animation:none}.ck-tour .ck-bar::before{transition:none}}
 </style>
+<style>
+/* ===== Shell, part four · the SharePoint site keeps the record: home, records library, sign-off log ===== */
+.r-site{display:flex;flex-direction:column;gap:16px;font-family:var(--ms-font);color:var(--ms-text)}
+.r-banner{background:#fff;border:1px solid var(--ms-border);border-top:3px solid var(--sp);padding:22px 24px;display:flex;gap:28px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
+.r-banner>div{flex:1 1 420px;min-width:0}
+.r-kick{font-size:12px;font-weight:600;color:var(--sp-d);letter-spacing:.2px}
+.r-banner h1{font-size:24px;line-height:1.25;font-weight:600;margin:6px 0 8px;max-width:640px}
+.r-banner p{font-size:14px;line-height:1.55;color:var(--ms-text2);margin:0 0 14px;max-width:640px}
+.r-facts{display:flex;gap:22px;margin:0;flex-wrap:wrap}
+.r-facts div{min-width:110px}
+.r-facts dt{font-size:11.5px;color:var(--ms-text2)}
+.r-facts dd{margin:2px 0 0;font-size:24px;font-weight:600;color:var(--ms-text)}
+.r-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.r-tile{background:#fff;border:1px solid var(--ms-border);padding:14px 16px;text-align:left;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:center}
+.r-tile:hover{border-color:var(--sp);background:var(--sp-l)}
+.r-tile .r-ti{grid-row:span 2;display:flex;align-items:center}
+.r-tile b{font-size:14px;font-weight:600}
+.r-tile span:not(.r-ti){font-size:12px;color:var(--ms-text2)}
+.r-cols{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px}
+.r-wp{background:#fff;border:1px solid var(--ms-border);padding:14px 18px 10px}
+.r-wh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.r-wh h2{font-size:16px;font-weight:600;margin:0}
+.r-more,.r-open,.r-lnk{color:var(--sp-d);font-size:12.5px;font-weight:600;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+.r-more:hover,.r-open:hover,.r-lnk:hover{text-decoration:underline}
+.r-lnk{font:inherit;letter-spacing:inherit;color:inherit;text-decoration:underline;text-underline-offset:2px}
+.r-doc{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #f0f0f0}
+.r-doc:first-of-type{border-top:0}
+.r-doc>div{flex:1;min-width:0}
+.r-doc b{display:block;font-size:13.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r-doc span{font-size:12px;color:var(--ms-text2)}
+.r-so{padding:9px 0;border-top:1px solid #f0f0f0;display:flex;flex-direction:column;gap:3px;font-size:13px}
+.r-so:first-of-type{border-top:0}
+.r-sot{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.r-sot b{font-weight:600}
+.r-so>span{color:var(--ms-text);line-height:1.45}
+.r-so i{font-style:normal;font-size:12px;color:var(--ms-text2)}
+.r-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 18px;padding:4px 0 6px}
+.r-pg div{display:flex;flex-direction:column;gap:2px;padding:6px 0}
+.r-pg b{font-size:13px;font-weight:600}
+.r-pg span{font-size:12.5px;color:var(--ms-text2);line-height:1.45}
+.r-btn{background:var(--sp);color:#fff;font-family:var(--ms-font);font-size:14px;font-weight:600;padding:7px 16px;border-radius:4px;border:0;cursor:pointer}
+.r-btn:hover{background:var(--sp-d)}
+.r-st{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;white-space:nowrap}
+.r-dot{width:8px;height:8px;border-radius:50%;flex:none;background:#8a8a8a}
+.r-dot.ok{background:#107c41}.r-dot.mid{background:#c19c00}.r-dot.bad{background:#c50f1f}
+.r-muted{font-size:12px;color:var(--ms-text2)}
+.r-views{display:flex;gap:2px;flex-wrap:wrap}
+.r-views button{font-size:12.5px;padding:3px 9px;border-radius:3px;color:var(--ms-text)}
+.r-views button.on{background:var(--sp-l);color:var(--sp-d);font-weight:600}
+.r-lib td{vertical-align:middle}
+.r-lib td.r-w{white-space:normal;min-width:200px;line-height:1.4}
+.r-lib td.r-ev .r-open{white-space:normal;min-width:200px}
+.r-lib .r-open{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.r-lib .r-open .fi{transform:scale(.8)}
+.r-nw{white-space:nowrap}
+.r-note{font-size:12.5px;color:var(--ms-text2);margin-top:12px;line-height:1.5}
+.g-ql .r-toapp{align-items:center;color:var(--sp-d);font-weight:600}
+@media (max-width:900px){ .r-cols{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:640px){
+  .r-banner{padding:16px;gap:16px}
+  .r-banner h1{font-size:20px}
+  .r-facts{gap:14px}
+  .r-facts dd{font-size:20px}
+  .r-tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .r-tile{padding:10px 12px;grid-template-columns:minmax(0,1fr)}
+  .r-tile .r-ti{grid-row:auto}
+  .r-wp{padding:12px 14px 8px}
+  .r-views{margin-left:0!important}
+}
+</style>
 <script>window.__BRAND={firm:"Alder Point Credit",domain:"alderpointcredit.com",user:"Holly Smith",first:"Holly",ini:"HS",email:"holly.smith",mono:"AP",synthFirm:true};</script>
 <script>
 // ---------- synthetic data (no real firms, borrowers or people) ----------
@@ -23537,7 +23607,7 @@ renderTeams = gSwap(renderTeams, [['} Command center</button>',`} ${SH.site}</bu
 const _renderBuilt = renderBuilt;
 renderBuilt = function(){ _renderBuilt(); const m = $('#built'); m.innerHTML = m.innerHTML
   .split('A hub with two sites').join('One site, four jobs')
-  .split('SharePoint hub Credit Portfolio with the Portfolio and Deal knowledge sites; deal rooms stay where they are').join(`One SharePoint site, ${SH.site}, with CreditSwan pages for the four jobs, deal knowledge and the portfolio; deal rooms stay where they are`)
+  .split('SharePoint hub Credit Portfolio with the Portfolio and Deal knowledge sites; deal rooms stay where they are').join(`One SharePoint site, ${SH.site}, that keeps every file CreditSwan writes and the sign-off log; the work happens in the CreditSwan app; deal rooms stay where they are`)
   .split('writes only to its Portfolio and Deal knowledge sites').join(`writes only to the ${SH.site} site`); };
 PK.why.backLabel = 'Today';
 $('#btnBuilt').onclick = renderBuilt;
@@ -23667,11 +23737,11 @@ if (GT['One decision, with its evidence']) GT['One decision, with its evidence']
 if (SH.pilot && GT['CreditSwan Overview']) GT['CreditSwan Overview'].body += ' To start a 30-day pilot on three companies from your back book: sales@creditswan.com.';
 const gWatchStep = {title:'The weekly watch, between '+(PORTAL?'reports':'packages'), clock:'08:12',
   body:(PORTAL?'Financials arrive':'Packages arrive')+' monthly; trouble does not wait for them. Every week CreditSwan reads outside signals for each borrower, foot traffic, digital demand, reviews and ratings, and every change in its deal room, and flags only what moves against the borrower\'s own market. This week Saffron and Halcyon are moving.',
-  piece:'CreditSwan page on your SharePoint; kinds of evidence from licensed and public sources, read inside your tenant',
+  piece:'CreditSwan app; kinds of evidence from licensed and public sources, read inside your tenant; the weekly note filed on '+SH.site,
   nav(){ S.app='sharepoint'; S.sp='watch'; }, apply(){}, async play(){ await sleep(2200); stepScroll('#g-watch-tbl',12); }};
 const gCycleStep = {title:'The whole cycle on one page', clock:'10:14',
   body:'Every '+(PORTAL?'report':'package')+' in the October cycle, recomputed on its own credit agreement and signed off: nine supported and Juniper the exception. Over the past year most differences came from add-backs outside the agreement\'s definitions.',
-  piece:'CreditSwan page on your SharePoint, reading the same tables as the covenant workbook',
+  piece:'CreditSwan app, reading the same tables as the covenant workbook; each sign-off logged on '+SH.site,
   nav(){ S.app='sharepoint'; S.sp='checks'; }, apply(){}, async play(){ await sleep(1800); stepScroll('#g-why',12); }};
 const gBackStep = {title:SH.pilot?'Add the back book, then start with three':'Add the back book', clock:'10:47',
   body:'Companies you already lend to join without asking the borrower for anything: CreditSwan reads the deal room and your last three packages, recomputes each on the credit agreement and shows every difference before the first live month.'+(SH.pilot?' That is also the first step with CreditSwan: a 30-day pilot on three companies from your back book.':''),
@@ -23716,8 +23786,8 @@ goStep = function(i){
 };
 // ---------- shell, part two: CreditSwan as its own app, less chrome, an analyst desk (every build) ----------
 // CreditSwan opens from the rail as its own app: a Teams personal app that also runs in Outlook and the
-// Microsoft 365 app. The same pages stay on the firm's SharePoint site (SH.site), where everything
-// CreditSwan writes is kept. S.host says which of the two is showing ('app' or 'site').
+// Microsoft 365 app. The firm's SharePoint site (SH.site) keeps the record: everything CreditSwan
+// writes and every sign-off (see 4k-records.js). S.host says which of the two is showing ('app' or 'site').
 // Knowledge estate and Deal graph gain an analyst desk: questions with answers, what changed since last
 // month, precedents for a live deal, linked evidence and exports to Excel and Word. All data synthetic.
 
@@ -23781,7 +23851,7 @@ spHeader = function(){
 };
 // the menu footer says where the pages live
 const _gMenu = gMenu;
-gMenu = function(){ const h = _gMenu(); return inApp() ? h.replace('CreditSwan pages on your SharePoint · deal rooms read where they are', 'The same pages sit on your '+SH.site+' site · deal rooms read where they are') : h; };
+gMenu = function(){ const h = _gMenu(); return inApp() ? h.replace('CreditSwan pages on your SharePoint · deal rooms read where they are', 'Everything it writes is kept on your '+SH.site+' site · deal rooms read where they are') : h; };
 
 // --- interactive editions: one bar, one tab row, one section row ---
 // The editions bring their own brand bar; inside the demo its title and buttons move to the bar above.
@@ -24222,8 +24292,175 @@ const ckJumpStep = {title:'Jump anywhere from one box', clock:'07:46', core:true
     await sleep(1500); const r = document.querySelector('#ck-res .ck-r.on'); if (r) r.click(); }};
 ckJumpStep.ch = STEPS[0].ch;
 STEPS.splice(1, 0, ckJumpStep);
+// ---------- shell, part four: the app does the work, the SharePoint site keeps the record (every build) ----------
+// The CreditSwan app is where the work happens. The SharePoint site (SH.site) no longer mirrors the app's pages:
+// it holds what an auditor, a colleague or a later reader needs, under the firm's own permissions:
+//   the deal rooms CreditSwan reads where they are (SH.siteRead), the library of every file it writes,
+//   and the sign-off log of who approved what, on which evidence. Every item opens its page in the app.
+// All rows are synthetic.
 
-// opens collapsed: a slim bar, details one click away
+// --- which pages live where ---
+const R_READ = SH.siteRead || [['dealrooms','Deal rooms']];
+const R_OWN = ['rhome','rlib','rlog'];
+const R_PAGES = new Set(R_OWN.concat(R_READ.map(x=>x[0]), ['dealrooms']));   // a deal room opened from a change notice stays on the site
+const R_LAB = {rhome:'Home', rlib:'CreditSwan records', rlog:'Sign-off log'};
+const _kReset = resetState;
+resetState = function(){ _kReset(); S.rView = 'all'; S.appSp = 'home'; };
+S.rView = 'all'; S.appSp = 'home';
+
+// leaving the app for the site lands on the site's home; coming back returns to the app page you left
+window.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('[data-host="site"],#rail [data-app="sharepoint"]');
+  if (!b) return;
+  if (inApp()) S.appSp = S.sp;
+  if (!R_PAGES.has(S.sp) || inApp()) S.sp = b.dataset.rsp || 'rhome';
+  if (b.dataset.rv) S.rView = b.dataset.rv;
+}, true);
+const _kRender = render;
+render = function(){
+  if (S.app==='sharepoint'){
+    if (S.host==='site' && !R_PAGES.has(S.sp)) S.host = 'app';          // an app page asked for from the site opens in the app
+    else if (S.host==='app' && R_OWN.includes(S.sp)) S.sp = S.appSp || 'home';
+    if (inApp()) S.appSp = S.sp;
+  }
+  _kRender();
+};
+const _kLabel = gLabel;
+gLabel = function(k){ if (R_LAB[k]) return R_LAB[k]; const r = R_READ.find(x=>x[0]===k); return r ? r[1] : _kLabel(k); };
+
+// --- the site's own menu ---
+const _kMenu = gMenu;
+gMenu = function(){
+  if (inApp()) return _kMenu();
+  const cur = S.sp;
+  const btn = (k, l) => `<button type="button" data-sp="${k}" class="${cur===k?'on':''}"${cur===k?' aria-current="page"':''}>${l}</button>`;
+  return `<nav class="g-ql${S.qlOpen?' open':''}" aria-label="Site navigation">
+    ${btn('rhome','Home')}
+    <div class="g-qh">Read where they are</div>${R_READ.map(([k,l])=>btn(k,l)).join('')}
+    <div class="g-qh">Written by CreditSwan</div>${btn('rlib','CreditSwan records')}${btn('rlog','Sign-off log')}<button type="button" data-app="excel">Covenant workbook</button>
+    <div class="g-qh">The work</div><button type="button" data-app="creditswan" class="r-toapp">${SWAN('#16211F','#A98543',14)}<span>Open the CreditSwan app</span></button>
+    <div class="g-qf">Your permissions · CreditSwan writes only to its records library</div>
+  </nav>`;
+};
+
+// --- the records (synthetic) ---
+const R_AN = BRAND.user;
+const R_ROOMS = SH.roomWord || 'deal rooms';   // what this firm calls the folders it keeps each deal in
+const rCap = x => x.charAt(0).toUpperCase() + x.slice(1);
+const R_KIND = {dd:'Diligence File', chk:PORTAL?'Reporting check':'Package check', wb:'Covenant workbook', wt:'Weekly watch', bb:'Back-book add', dr:'Draft', ex:'Export'};
+const R_VIEWS = [['all','All documents'],['dd','Diligence Files'],['chk',PORTAL?'Monthly reporting':'Package checks'],['wt','Weekly watch'],['out','Drafts and exports']];
+function rFiles(){
+  const jAug = S.jStage>=6, ex = (S.gExp||[]).map(([k,n,t])=>[k, n, 'Today '+t, R_AN, 'ex', '—', 'Exported from the analyst desk', 'estate']);
+  const cyc = G_CYCLE.filter(b=>b.id!=='juniper').slice(0, 5).map(b=>['pdf', `${b.name} ${b.period} ${PORTAL?'reporting':'package'} check.pdf`, (G_RECV[b.id]||'2 Oct').split(' ').reverse().join(' '), R_AN, 'chk', b.name, 'Signed off · supported', 'checks']);
+  return [].concat(ex, SH.siteFiles || [],
+    jAug ? [['pdf', `Juniper Aug-26 ${PORTAL?'reporting':'package'} check.pdf`, 'Today 10:12', 'CreditSwan', 'chk', 'Juniper', S.f.replied?'Signed off · exception':'Awaiting sign-off', 'juniper'],
+            ['xlsx', 'Juniper Aug-26 source rows and working.xlsx', 'Today 10:12', 'CreditSwan', 'chk', 'Juniper', 'Evidence for the check', 'juniper']] : [],
+    [['xlsx', 'Covenant workbook, Oct-26.xlsx', jAug?'Today 10:14':'Today 06:30', 'CreditSwan', 'wb', 'All borrowers', 'Verified figures only', 'xl'],
+     ['pdf', 'Veterinary care Diligence File, Oct-26.pdf', 'Oct 6', R_AN, 'dd', 'Deal A', 'Signed off · sent to credit committee', 'dd'],
+     ['xlsx', 'Veterinary care Diligence File, tables, Oct-26.xlsx', 'Oct 6', 'CreditSwan', 'dd', 'Deal A', 'Every table behind the file', 'dd'],
+     ['docx', `Weekly watch, week of 5 Oct.docx`, 'Oct 5', 'CreditSwan', 'wt', 'Watch list', S.f.saffronAlert?'3 flags · Saffron added':'2 flags · Saffron, Halcyon', 'watch'],
+     ['docx', 'Weekly watch, week of 28 Sep.docx', 'Sep 28', 'CreditSwan', 'wt', 'Watch list', '1 flag · Halcyon', 'watch'],
+     ['pdf', `Juniper Jul-26 ${PORTAL?'reporting':'package'} check.pdf`, 'Sep 9', R_AN, 'chk', 'Juniper', 'Signed off · supported', 'juniper']],
+    cyc,
+    [['pdf', 'Quill back-book review, last three packages.pdf', 'Sep 30', R_AN, 'bb', 'Quill', 'Signed off · added to watch', 'backbook'],
+     ['folder', 'Fennel · Diligence File in progress', 'Yesterday', 'CreditSwan', 'dd', 'Fennel', 'Draft · day 6', 'dd'],
+     ['docx', 'Saffron add-back history, note.docx', 'Oct 2', R_AN, 'ex', 'Saffron', 'Exported from the analyst desk', 'estate']]);
+}
+// newest first: today, yesterday, then by date
+const R_MO = {Sep:9, Oct:10, Nov:11};
+const rWhen = t => /^Today/.test(t) ? 1e4 + (parseInt(t.slice(6))||0) : t==='Yesterday' ? 9999 : (R_MO[t.split(' ')[0]]||0) * 40 + (parseInt(t.split(' ')[1])||0);
+const rSorted = () => rFiles().sort((a, b) => rWhen(b[2]) - rWhen(a[2]));
+function rLog(){
+  const pk = PORTAL ? 'Monthly reporting' : 'Package check';
+  return [].concat(
+    S.f.replied ? [['Today 10:12', 'Juniper', pk, 'Aug-26 total leverage 3.9x on the agreement\'s definition, not 3.4x as reported', ['bad','Exception raised'], R_AN, `Juniper Aug-26 ${PORTAL?'reporting':'package'} check.pdf`, 'juniper']] : [],
+    S.f.saffronAlert ? [['Today 08:20', 'Saffron', 'Weekly watch', 'Revised QoE in the deal room ahead of a $6.0m incremental', ['mid','Kept on watch'], R_AN, 'Weekly watch, week of 5 Oct.docx', 'watch']] : [],
+    SH.siteLog || [],
+    [['Oct 6', 'Deal A', 'Diligence File', 'Adjusted EBITDA, add-backs and leverage, every figure traced to its file', ['ok','Sent to credit committee'], R_AN, 'Veterinary care Diligence File, Oct-26.pdf', 'dd'],
+     ['Oct 6', 'Halcyon', pk, 'Aug-26 minimum liquidity $4.5m', ['ok','Supported'], R_AN, `Halcyon Aug-26 ${PORTAL?'reporting':'package'} check.pdf`, 'checks'],
+     ['Oct 5', 'Saffron, Halcyon', 'Weekly watch', 'Two borrowers moving against their own markets', ['mid','Kept on watch'], R_AN, 'Weekly watch, week of 5 Oct.docx', 'watch'],
+     ['Oct 1', 'Cobalt', pk, 'Aug-26 fixed charge cover 1.45x', ['ok','Supported'], R_AN, `Cobalt Aug-26 ${PORTAL?'reporting':'package'} check.pdf`, 'checks'],
+     ['Sep 30', 'Quill', 'Back-book add', 'Last three packages recomputed on the credit agreement', ['ok','Added to watch'], R_AN, 'Quill back-book review, last three packages.pdf', 'backbook'],
+     ['Sep 9', 'Juniper', pk, 'Jul-26 total leverage 3.5x', ['ok','Supported'], R_AN, `Juniper Jul-26 ${PORTAL?'reporting':'package'} check.pdf`, 'juniper']],
+    );
+}
+const rA = k => k.includes('=') ? k : gAttr(k);   // a page key, or the attributes that open it
+const rOpen = (k, label='Open in the app') => `<button type="button" class="r-open" ${rA(k)}>${label} ↗</button>`;
+const rChip = ([k, t]) => `<span class="r-st"><i class="r-dot ${k}"></i>${t}</span>`;
+const rStat = s => { const k = /exception/i.test(s) ? 'bad' : /awaiting|draft|flag/i.test(s) ? 'mid' : /signed off|supported|verified/i.test(s) ? 'ok' : ''; return k ? `<span class="r-st"><i class="r-dot ${k}"></i>${s}</span>` : `<span class="r-muted">${s}</span>`; };
+
+// --- the site's home ---
+function renderRHome(){
+  const files = rSorted(), log = rLog();
+  const tile = (attr, ic, h, s) => `<button type="button" class="r-tile" ${attr}><span class="r-ti">${ic}</span><b>${h}</b><span>${s}</span></button>`;
+  return `<div class="r-site">
+  <section class="r-banner"><div><div class="r-kick">${SH.site} · ${FIRM.name}</div><h1>Everything CreditSwan reads and writes, kept on your SharePoint</h1>
+    <p>${rCap(R_ROOMS)} stay where they are and are read in place. Every file CreditSwan writes, and every sign-off behind it, lands in this site's records library under your own permissions. The work itself happens in the CreditSwan app.</p>
+    <button type="button" class="r-btn" data-app="creditswan">Open the CreditSwan app</button></div>
+    <dl class="r-facts"><div><dt>${rCap(R_ROOMS)} read in place</dt><dd>${nf(DS.rooms)}</dd></div><div><dt>Files CreditSwan wrote</dt><dd>${nf(Math.round(3864 * SC) + files.length)}</dd></div><div><dt>Sign-offs this year</dt><dd>${nf(Math.round(412 * SC) + log.length)}</dd></div></dl></section>
+  <div class="r-tiles">
+    ${R_READ.map(([k,l])=>tile(`data-sp="${k}"`, icoFile('folder'), l, 'Read where they are')).join('')}
+    ${tile('data-sp="rlib"', icoFile('pdf'), 'CreditSwan records', 'Every file it writes')}
+    ${tile('data-sp="rlog"', icoFile('docx'), 'Sign-off log', 'Who approved what, on which evidence')}
+    ${tile('data-app="excel"', icoFile('xlsx'), 'Covenant workbook', 'Verified figures only')}
+  </div>
+  <div class="r-cols">
+    <section class="r-wp"><div class="r-wh"><h2>Recent files</h2><button type="button" class="r-more" data-sp="rlib">See all</button></div>
+      ${files.slice(0, 6).map(f=>`<div class="r-doc">${icoFile(f[0])}<div><b>${f[1]}</b><span>${f[3]} · ${f[2]} · ${R_KIND[f[4]]}</span></div>${rOpen(f[7], 'Open')}</div>`).join('')}</section>
+    <section class="r-wp"><div class="r-wh"><h2>Latest sign-offs</h2><button type="button" class="r-more" data-sp="rlog">See all</button></div>
+      ${log.slice(0, 4).map(r=>`<div class="r-so"><div class="r-sot"><b>${r[1]}</b> · ${r[2]}${rChip(r[4])}</div><span>${r[3]}</span><i>${r[5]} · ${r[0]}</i></div>`).join('')}</section>
+  </div>
+  <section class="r-wp r-perm"><div class="r-wh"><h2>Who can see this site</h2><span class="r-muted">Managed in your own Microsoft Entra ID groups</span></div>
+    <div class="r-pg">${[['Credit team','Read and comment on every record; analysts sign off in the app'],['Credit committee','Read the Diligence Files and sign-off log'],['Site owners','Your IT team; permissions and retention as on any site'],['CreditSwan app','Reads deal rooms under the grant your security review approves; writes only to the records library']].map(([h,s])=>`<div><b>${h}</b><span>${s}</span></div>`).join('')}</div></section>
+  </div>`;
+}
+
+// --- the records library ---
+function renderRLib(){
+  const v = S.rView, inV = f => v==='all' || (v==='out' ? ['dr','ex'].includes(f[4]) : v==='chk' ? ['chk','wb'].includes(f[4]) : v==='dd' ? ['dd','bb'].includes(f[4]) : f[4]===v);
+  const rows = rSorted().filter(inV);
+  return `<div class="crumb">${SH.site} <span>›</span> CreditSwan records</div>
+  <p class="sysline">Written by CreditSwan and signed off by your analysts · read by anyone the site lets in · nothing here is edited by hand</p>
+  <div style="background:#fff;border:1px solid var(--ms-border)">
+  <div class="sp-cmd" style="border-top:0"><span>⤓ Download</span><span>⤴ Share</span><span>⧉ Copy link</span><span>🔔 Alert me</span><span style="margin-left:auto" class="r-views" role="tablist" aria-label="Library views">${R_VIEWS.map(([k,l])=>`<button type="button" role="tab" data-rv="${k}" class="${v===k?'on':''}" aria-selected="${v===k}">${l}</button>`).join('')}</span></div>
+  <div class="tblwrap"><table class="lib r-lib"><tr><th>Name</th><th>Kind</th><th>Borrower or deal</th><th>Modified</th><th>Modified by</th><th>Status</th><th></th></tr>
+  ${rows.map(f=>`<tr><td class="r-w"><span class="fn">${icoFile(f[0])}${f[1]}</span></td><td>${R_KIND[f[4]]}</td><td>${f[5]}</td><td>${f[2]}</td><td>${f[3]}</td><td>${rStat(f[6])}</td><td>${rOpen(f[7])}</td></tr>`).join('')}</table></div></div>
+  <p class="r-note">${rows.length} of ${nf(Math.round(3864 * SC) + rFiles().length)} files shown. Each file opens in Word, Excel or PowerPoint as usual; "Open in the app" takes you to the page that made it, with every figure traced to its source.</p>`;
+}
+
+// --- the sign-off log ---
+function renderRLog(){
+  const rows = rLog();
+  return `<div class="crumb">${SH.site} <span>›</span> Sign-off log</div>
+  <p class="sysline">A SharePoint list CreditSwan adds to when an analyst signs off in the app · entries cannot be edited or deleted from the app</p>
+  <div style="background:#fff;border:1px solid var(--ms-border)">
+  <div class="sp-cmd" style="border-top:0"><span>⤓ Export to Excel</span><span>⚲ Filter</span><span>▦ Group by job</span><span style="margin-left:auto" class="r-muted">${rows.length} entries this month</span></div>
+  <div class="tblwrap"><table class="lib r-lib"><tr><th>Signed</th><th>Borrower or deal</th><th>Job</th><th>What was checked</th><th>Decision</th><th>Signed by</th><th>Evidence</th></tr>
+  ${rows.map(r=>`<tr${/^Today/.test(r[0])&&r[4][0]==='bad'?' class="new"':''}><td class="r-nw">${r[0]}</td><td><b style="font-weight:600">${r[1]}</b></td><td>${r[2]}</td><td class="r-w">${r[3]}</td><td>${rChip(r[4])}</td><td>${r[5]}</td><td class="r-ev"><button type="button" class="r-open" ${rA(r[7])}>${icoFile(r[6].endsWith('.docx')?'docx':r[6].endsWith('.pptx')?'pptx':'pdf')}<span>${r[6]}</span></button></td></tr>`).join('')}</table></div></div>
+  <p class="r-note">CreditSwan prepares the evidence; the decision and the name beside it are your analyst's. Your audit and retention policies apply to this list as to any other.</p>`;
+}
+Object.assign(SH.pages, {rhome:renderRHome, rlib:renderRLib, rlog:renderRLog});
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('[data-rv]');
+  if (b){ S.rView = b.dataset.rv; render(); }
+});
+
+// --- the app points at the record ---
+const _kEstate = renderEstate;
+renderEstate = function(){ return _kEstate().split(`Exports · ${SH.site} › Exports</span>`).join(`Exports · <button type="button" class="r-lnk" data-host="site" data-rsp="rlib" data-rv="out">${SH.site} › CreditSwan records ↗</button></span>`); };
+
+// --- the tour: the site step shows the record, not the same pages ---
+(function(){
+  const st = STEPS.find(s=>s.title==='The same pages, on your SharePoint');
+  if (!st) return;
+  Object.assign(st, {title:'Everything it writes, on your SharePoint',
+    body:'The work happens in the app; the record lives on '+(SH.siteIs || 'one SharePoint site, '+SH.site)+'. Deal rooms are read where they are. Every file CreditSwan writes sits in one records library, and every sign-off is logged with the analyst\'s name and the evidence behind it. Anyone with access can open it, search it or link it in a Teams channel, under your own permissions.',
+    piece:'One SharePoint site, '+SH.site+', under your existing permissions; the app writes only to its records library and sign-off log',
+    nav(){ S.app='sharepoint'; S.sp='rhome'; S.host='site'; },
+    async play(){ await sleep(2800); S.sp='rlog'; render(); }});
+})();
+
+// the tour opens collapsed: a slim bar, details one click away
 S.tourMin = true;
 RUN++; goStep(0);
 </script>
